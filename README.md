@@ -1,7 +1,45 @@
 # CRUD JWT Spring Boot API
 
 This is a secure Spring Boot API implementing CRUD operations and JWT authentication.
+
 ---
+## Clone Repository
+
+To clone the project repository from GitHub, follow these steps:
+
+1. **Copy Repository URL**:
+  - Go to your project repository on GitHub.
+  - Click on the "Code" button to reveal the repository URL.
+  - Copy the repository URL.
+
+2. **Open Terminal/Command Prompt**:
+  - Open a terminal or command prompt on your local machine.
+
+3. **Navigate to Desired Directory**:
+  - Navigate to the directory where you want to clone the project using the `cd` command.
+
+4. **Clone Repository**:
+  - Use the `git clone` command followed by the repository URL to clone the project.
+    ```bash
+    git clone https://github.com/zayndev-1510/crud-jwt-spring-boot.git
+    ```
+  - Replace `<repository-url>` with the URL you copied in step 1.
+
+5. **Confirm Cloning**:
+  - After executing the `git clone` command, the repository will be cloned to your local machine.
+  - You can confirm the successful cloning by checking the directory contents using the `ls` command (for Unix-based systems) or the `dir` command (for Windows).
+
+6. **Navigate to Project Directory**:
+  - Use the `cd` command to navigate into the cloned project directory.
+    ```bash
+    cd <project-directory>
+    ```
+  - Replace `<project-directory>` with the name of the cloned project directory.
+
+Now you have successfully cloned the project repository to your local machine and navigated to the project directory. You can proceed with setting up and running the project locally.
+
+---
+
 ## Technologies Used
 
 ### 1. Spring Boot
