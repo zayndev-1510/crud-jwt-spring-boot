@@ -201,24 +201,24 @@ java -jar target/filename.jar
   }
   ```
 - **Success**:
-```json
-{
-    "message": "Login Successful",
-    "success": true,
-    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYyMzUyMTM3MywiZXhwIjoxNjIzNTI0OTczfQ.QM20r0z7jpO91-70FZfqTj3JdQtbmbxOKoioCJt67bg",
-    "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYyMzUyMTM3MywiZXhwIjoxNjI4MDUzNzczfQ.bKGob7F2qrbfKwdQpBj-tNrFZMDYlZ0j3XZTggdQLVk"
-}
-```
+  ```json
+  {
+      "message": "Login Successful",
+      "success": true,
+      "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYyMzUyMTM3MywiZXhwIjoxNjIzNTI0OTczfQ.QM20r0z7jpO91-70FZfqTj3JdQtbmbxOKoioCJt67bg",
+      "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYyMzUyMTM3MywiZXhwIjoxNjI4MDUzNzczfQ.bKGob7F2qrbfKwdQpBj-tNrFZMDYlZ0j3XZTggdQLVk"
+  }
+  ```
 
 - **Failed**:
-```json
-{
-    "message": "Login Gagal",
-    "success": false,
-    "token": null,
-    "refreshToken": null
-}
-```
+  ```json
+  {
+      "message": "Login Gagal",
+      "success": false,
+      "token": null,
+      "refreshToken": null
+  }
+  ```
 ## Blogs Management
 #### Create Blog
 
@@ -251,7 +251,7 @@ java -jar target/filename.jar
       {
           "success": false,
           "time": "Sat May 11 18:15:52 WITA 2024",
-          "message": "Data yang Anda masukkan sudah ada."
+          "message":"Duplicate data"
       }
       ```
   - **Error Validation data Response**:
@@ -318,22 +318,22 @@ java -jar target/filename.jar
     - `favorites`: Number of favorites for the blog.
     - `image`: Image associated with the blog.
     - `user`: User details associated with the blog.
-    - **Success Response**:
-      - If the blog is successfully update, it will return the created blog object with HTTP status code 201.
-      ```json
-         {
-            "message": "success",
-            "success": true
-         }
-      ```
-- **Error Response**:
-  - If the data invalid, it will return the following response with HTTP status code 404:
+  - **Success Response**:
+    - If the blog is successfully update, it will return the created blog object with HTTP status code 201.
     ```json
-          {
+       {
+          "message": "success",
+          "success": true
+       }
+    ```
+  - **Error Response**:
+    - If the data invalid, it will return the following response with HTTP status code 404:
+    ```json
+       {
           "message": "ID Invalid",
           "success": false
-          }
-    ``` 
+       }
+      ``` 
 
 #### Delete Blog
 - **Endpoint**: `DELETE {{base_url}}api/v1/blogs/{id}`
@@ -352,9 +352,9 @@ java -jar target/filename.jar
       ```
 - **Error Response**:
   - If the data invalid, it will return the following response with HTTP status code 404:
-    ```json
-          {
+```json
+      {
           "message": "ID Invalid",
           "success": false
-          }
-    ``` 
+      }
+``` 
