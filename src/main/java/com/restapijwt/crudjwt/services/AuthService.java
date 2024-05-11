@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -36,14 +37,22 @@ public class AuthService implements AuthInterface{
         var refreshToken=jwtService.generateRefreshToken(new HashMap<>(),user);
         user.setRefreshToken(refreshToken);
         user.setToken(jwt);
-        userRepository.save(user);
-        return new ResponseEntity<>(new SignInResponse("Login Success",true,jwt,refreshToken), HttpStatus.OK);
+
+        try{
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), signInRequest.getPassword()));
+            userRepository.save(user);
+            return new ResponseEntity<>(new SignInResponse("Login berhasil",true,jwt,refreshToken),HttpStatus.OK);
+
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(new SignInResponse("Login gagal",false,null,null),HttpStatus.OK);
+        }
     }
 
     @Override
     public ResponseEntity<ResponseApi> signUp(SignUpRequest request) {
         Users user = new Users();
-        user.setRole(Role.ADMIN);
+        user.setRole(request.getRole());
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
